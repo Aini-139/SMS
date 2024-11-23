@@ -18,6 +18,7 @@ if (isset($_POST['submit'])) {
     if ($query) {
         $item_id = mysqli_insert_id($db_conn);
     }
+ // just for test 
     $metadata = array(
         'class_id' => $class_id,
         'section_id' => $section_id,
