@@ -20,16 +20,17 @@
 </div>
 <!-- /.content-header -->
 <?php
-print_r($father);
-$class = get_post(['id' => $stdmeta['class']]);
-$section = get_post(['id' => $stdmeta['section']]);
+
+// $class = get_post(['id' => $stdmeta['class']]);
+// $section = get_post(['id' => $stdmeta['section']]);
+// print_r($class);
 
 ?>
 <!-- Main content -->
 <section class="content">
   <div class="container-fluid">
 
-    <div class="row">
+    <div class="row ">
       <div class="col-md-3">
 
         <div class="card card-primary card-outline">
@@ -43,13 +44,13 @@ $section = get_post(['id' => $stdmeta['section']]);
               <?php echo $stdmeta['country']; ?>
               (<?php echo $stdmeta['zip']; ?>)</p>
             <hr>
-            <p>
+            <!-- <p>
               <strong><i class="fa-fw fas fa-chalkboard mr-1"></i>Class</strong>
               <span class="text-muted float-right">
-                <?php echo $class->title; ?> (<?php echo $section->title; ?>)
+                <?php //echo $class->title; ?> (<?php //echo $section->title; ?>)
               </span>
-            </p>
-            <hr>
+            </p> -->
+            <!-- <hr> -->
             <p>
               <strong><i class="fa-fw fas fa-calendar-alt mr-1"></i> DOB</strong>
               <span class="text-muted float-right">

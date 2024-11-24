@@ -103,9 +103,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=$site_url?>teacher/paper-schedule.php" class="nav-link">
+                <a href="<?=$site_url?>teacher/examschedule.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Paper Schedule</p>
+                  <p>Examinations Schedule</p>
                 </a>
               </li>
             </ul>
