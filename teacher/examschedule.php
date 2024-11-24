@@ -14,7 +14,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Student</a></li>
+                    <li class="breadcrumb-item"><a href="#">Teacher</a></li>
                     <li class="breadcrumb-item active">Examination Schedule</li>
                 </ol>
             </div>
@@ -38,13 +38,8 @@
                     </thead>
                     <tbody>
                         <?php
-                        $usermeta = get_user_metadata($std_id);
-                        $class = $usermeta['class'];
-
                         $count = 1;
-                        $query = mysqli_query($db_conn, "SELECT * FROM `posts` as p INNER JOIN `metadata` as m ON p.id = m.item_id WHERE p.`type` = 'examschedule' AND m.meta_key = 'class' AND m.meta_value = $class");
-
-                        // $query = mysqli_query($db_conn, "SELECT * FROM `posts` WHERE `type` = 'examschedule' AND author = 1");
+                        $query = mysqli_query($db_conn, "SELECT * FROM `posts` WHERE `type` = 'examschedule' AND author = 1");
                         while ($exam = mysqli_fetch_object($query)) {
 
                             $class_id = get_metadata($exam->id, 'class_id')[0]->meta_value;

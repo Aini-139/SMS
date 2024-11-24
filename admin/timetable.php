@@ -137,11 +137,14 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="col-lg">
                                 <div class="form-group" id="section-container">
-                                    <label for="subject_id">Select Subject</label>
-                                    <select require name="subject_id" id="subject_id" class="form-control">
+                                <label for="subject_id">Select Subject</label>
+                                    <select name="subject_id" id="subject_id" class="form-control" required>
                                         <option value="">-Select Subject-</option>
-                                        <option value="10">Mathematics</option>
-                                        <option value="12">English</option>
+                                        <?php
+                                        $subjects = get_posts(['type' => 'subject', 'status' => 'publish']);
+                                        foreach ($subjects as $subject) { ?>
+                                            <option value="<?php echo $subject->id ?>"><?php echo $subject->title ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>

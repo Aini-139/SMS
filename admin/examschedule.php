@@ -2,77 +2,47 @@
 
 <?php
 if (isset($_POST['submit'])) {
-    echo '<pre>';
-    print_r($_POST); 
-    echo '</pre>';
-//     $class_id = isset($_POST['class_id']) ? $_POST['class_id'] : '';
-//     $section_id = isset($_POST['section_id']) ? $_POST['section_id'] : '';
-//     $subject_id = isset($_POST['subject_id']) ? $_POST['subject_id'] : '';
-//     $exam_date = isset($_POST['exam_date']) ? $_POST['exam_date'] : '';
-//     $exam_time = isset($_POST['exam_time']) ? $_POST['exam_time'] : '';
-//     $status = 'scheduled';
-//     $author = 1;
-//     $type = 'examschedule';
+    // echo '<pre>';
+    // print_r($_POST);
+    // echo '</pre>';
+    $class_id = isset($_POST['class_id']) ? $_POST['class_id'] : '';
+    $section_id = isset($_POST['section_id']) ? $_POST['section_id'] : '';
+    $subject_id = isset($_POST['subject_id']) ? $_POST['subject_id'] : '';
+    $examDateTime = isset($_POST['examDateTime']) ? $_POST['examDateTime'] : '';
 
-//     $query_post = mysqli_query($db_conn, "
-//     INSERT INTO posts (author, title, description, type, publish_date, status, parent) 
-//     VALUES ('$author', 'Exam for $subject_id', 'Exam scheduled on $exam_date at $exam_time', '$type', '$publish_date', '$status', 0)
-// ") or die('Error inserting into posts table');
+    //$examDateTime = $_POST['examDateTime'] ?? null;
+    $status = 'scheduled';
+    $publish_date=$examDateTime;
+    $author = 1;
+    $type = 'examschedule';
 
-// if ($query_post) {
-//     // Get the inserted post ID
-//     $post_id = mysqli_insert_id($db_conn);
+    if (!$examDateTime) {
+        // Default to 7 days in the future with default time if no date and time are provided
+        $defaultDateTime = (new DateTime())->modify('+7 days')->setTime(9, 0); // 09:00 as default time
+        $examDateTime = $defaultDateTime->format('Y-m-d\TH:i');
+    } 
 
-//     // Insert metadata
-//     $metadata = [
-//         'class_id' => $class_id,
-//         'section_id' => $section_id,
-//         'exam_date' => $exam_date,
-//         'exam_time' => $exam_time,
-//         'exam_duration' => $exam_duration,
-//     ];
+    $query = mysqli_query($db_conn, "INSERT INTO `posts`(`author`, `title`, `description`, `type`,`publish_date`, `status`,`parent`) VALUES ('1','$type','description','examschedule','$publish_date','publish',0)") or die('DB error');
 
-//     foreach ($metadata as $key => $value) {
-//         $query_meta = mysqli_query($db_conn, "
-//             INSERT INTO metadata (item_id, meta_key, meta_value) 
-//             VALUES ('$post_id', '$key', '$value')
-//         ") or die('Error inserting into metadata table');
-//     }
+    if ($query) {
+        $item_id = mysqli_insert_id($db_conn);
+    }
 
-//     echo "Exam schedule successfully added!";
-// } else {
-//     echo "Failed to insert exam schedule.";
-// }
 
-    // Insert the basic exam schedule data
-    // $query = mysqli_query($db_conn, "INSERT INTO posts (`type`, `author`, `status`, `publish_date`) VALUES ('$type', '$author', '$status', NOW())");
-    // if ($query) {
-    //     $item_id = mysqli_insert_id($db_conn);
-    // }
+    $metadata = array(
+        'class_id' => $class_id,
+        'section_id' => $section_id,
+        'subject_id' => $subject_id,
+        'examDateTime' => $examDateTime,
+    );
 
-    // Metadata array to save additional exam-specific data
-    // $metadata = array(
-    //     'class_id' => $class_id,
-    //     'section_id' => $section_id,
-    //     'subject_id' => $subject_id,
-    //     'exam_date' => $exam_date,
-    //     'exam_time' => $exam_time,
-    //     'room_number' => $room_number,
-    // );
 
-    // foreach ($metadata as $key => $value) {
-    //     mysqli_query($db_conn, "INSERT INTO metadata (`item_id`, `meta_key`, `meta_value`) VALUES ('$item_id', '$key', '$value')");
-    // }
+    foreach ($metadata as $key => $value) {
+        mysqli_query($db_conn, "INSERT INTO metadata (`item_id`,`meta_key`,`meta_value`) VALUES ('$item_id','$key','$value')");
+    }
 
-    // if (!$db_conn) {
-    //     die("Database connection failed: " . mysqli_connect_error());
-    // }
-    // $result = mysqli_query($db_conn, "SELECT * FROM posts WHERE type = 'examschedule'");
-    // while ($row = mysqli_fetch_assoc($result)) {
-    //     echo $row['title']; // Example output
-    // }
+    header('Location: examschedule.php');
 
-    //header('Location: examschedule.php');
 }
 ?>
 <?php include('header.php') ?>
@@ -108,7 +78,7 @@ if (isset($_POST['submit'])) {
                                 <div class="form-group">
                                     <label for="class_id">Select Class</label>
                                     <select name="class_id" id="class_id" class="form-control" required>
-                                    <option value="">-Select Class-</option>
+                                        <option value="">-Select Class-</option>
                                         <?php
                                         $args = array(
                                             'type' => 'class',
@@ -122,20 +92,10 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                             <div class="col-lg">
-                            <div class="form-group" id="section-container">
+                                <div class="form-group" id="section-container">
                                     <label for="section">Select Section</label>
-                                    <select require name="section" id="section" class="form-control">
+                                    <select require name="section_id" id="section_id" class="form-control">
                                         <option value="">-Select Section-</option>
-                                        <?php
-                                        $args = array(
-                                            'type' => 'section',
-                                            'status' => 'publish',
-                                        );
-                                        $sections = get_posts($args);
-                                        foreach ($sections as $key => $section) { ?>
-                                            <option value="<?php echo $section->id ?>"><?php echo $section->title ?></option>
-                                        <?php } ?>
-
                                     </select>
                                 </div>
                             </div>
@@ -154,14 +114,8 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="col-lg">
                                 <div class="form-group">
-                                    <label for="exam_date">Exam Date</label>
-                                    <input type="date" name="exam_date" id="exam_date" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="form-group">
-                                    <label for="exam_time">Exam Time</label>
-                                    <input type="time" name="exam_time" id="exam_time" class="form-control" required>
+                                    <label for="examDateTime">Exam Date</label>
+                                    <input type="datetime-local" name="examDateTime" id="examDateTime" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -180,8 +134,8 @@ if (isset($_POST['submit'])) {
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                                <th>S.No.</th>
                                 <th>Date</th>
-                                <th>Time</th>
                                 <th>Class</th>
                                 <th>Section</th>
                                 <th>Subject</th>
@@ -189,38 +143,77 @@ if (isset($_POST['submit'])) {
                         </thead>
                         <tbody>
                             <?php
+                            $count = 1;
+                            $query = mysqli_query($db_conn, "SELECT * FROM `posts` WHERE `type` = 'examschedule' AND author = 1");
+                            while ($exam = mysqli_fetch_object($query)) {
 
-                            $args = array('type' => 'examschedule', 'status' => 'publish');
+                                $class_id = get_metadata($exam->id, 'class_id')[0]->meta_value;
+                                
+                                 $class = get_post(['id' => $class_id]);
+      
+                                $subject_id = get_metadata($exam->id, 'subject_id')[0]->meta_value;
+      
+                                $subject = get_post(['id' => $subject_id]);
+                                $section_id = get_metadata($exam->id, 'section_id')[0]->meta_value;
+      
+                                $section = get_post(['id' => $section_id]);
 
-                            $examscheduls = get_posts($args);
-                            foreach ($examscheduls as $examschedul) {
-                                $query = mysqli_query($db_conn, "SELECT * FROM posts as p
-                                INNER JOIN metadata as md ON (md.item_id = p.id)
-                                INNER JOIN metadata as mp ON (mp.item_id = p.id) 
-                                INNER JOIN metadata as mc ON (mc.item_id = p.id) 
-                                INNER JOIN metadata as ms ON (ms.item_id = p.id) 
-                                WHERE p.type = 'examschedule' AND p.status = 'publish' AND md.meta_key = 'day_name' AND md.meta_value = '$day' AND mp.meta_key = 'period_id' AND mp.meta_value = $period->id AND mc.meta_key = 'class_id' AND mc.meta_value = $class_id AND ms.meta_key = 'section_id' AND ms.meta_value = $section_id");
-                                    if (mysqli_num_rows($query) > 0) {
-                                        while ($timetable = mysqli_fetch_object($query)) {
-                                // Fetch and display exam schedule data
-                                //  $exam_data = fetch_exam_schedule();
-                                //foreach ($exam_data as $exam) { 
+                                $examDateTime = get_metadata($exam->id, 'examDateTime')[0]->meta_value;
+      
+                                $date= get_post(['id' => $examDateTime]);
+
+                                
+                                // echo '<pre>';
+                                // print_r($date);
+                                // echo '</pre>';
                             ?>
                                 <tr>
-                                    <td><?php echo $date?></td>
-                                    <td><?php echo $examschedul['exam_time'] ?></td>
-                                    <td><?php echo $examschedul['class'] ?></td>
-                                    <td><?php echo $examschedul['section'] ?></td>
-                                    <td><?php echo $examschedul['subject'] ?></td>
+                                    <td><?= $count++ ?></td>
+                                    <!-- <td><?//= isset($exam->metadata->date) ? $exam->metadata->date : 'N/A'; ?></td> -->
+
+                                    <td><?= $exam->publish_date ?></td>
+                                    <td><?=$class->title?></td>
+                                    <td><?=$section->title?></td>
+                                    <td><?=$subject->title?></td>
+                            
                                 </tr>
-                            <?php } }?>
+                        <?php }
+                        } ?>
                         </tbody>
                     </table>
                 </div>
             </div>
-        <?php } }
-        ?>
+            <?php //} }
+            ?>
     </div>
 </section>
+
+<!-- Subject -->
+<script>
+    jQuery(document).ready(function() {
+
+        jQuery('#class_id').change(function() {
+            // alert(jQuery(this).val());
+
+            jQuery.ajax({
+                url: 'ajax.php',
+                type: 'POST',
+                data: {
+                    'class_id': jQuery(this).val()
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.count > 0) {
+                        jQuery('#section-container').show();
+                    } else {
+                        jQuery('#section-container').hide();
+                    }
+                    jQuery('#section_id').html(response.options);
+                }
+            });
+        });
+
+    })
+</script>
 
 <?php include('footer.php') ?>
