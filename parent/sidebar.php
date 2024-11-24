@@ -92,6 +92,7 @@
           </ul>
         </li>
 
+
         <!-- Examination -->
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
@@ -110,6 +111,24 @@
             </li>
           </ul>
         </li>
+
+        <li class="nav-item has-treeview">
+                      <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-paste"></i>
+                          <p>
+                              Study Materials
+                              <i class="fas fa-angle-left right"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="<?=$site_url?>parent/study-materials.php" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Study Materials</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
 
         <!-- Event -->
         <li class="nav-item has-treeview">
