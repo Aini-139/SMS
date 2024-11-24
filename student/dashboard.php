@@ -31,7 +31,7 @@
                     <div class="info-box-content">
                         <span class="info-box-text">Total Students</span>
                         <span class="info-box-number">
-                            300
+                            <?php echo isset($_SESSION['total_students']) ? $_SESSION['total_students'] : '0'; ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -45,7 +45,9 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Total Teachers</span>
-                        <span class="info-box-number">15</span>
+                        <span class="info-box-number">
+                            <?php echo isset($_SESSION['total_teachers']) ? $_SESSION['total_teachers'] : '0'; ?>
+                        </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -62,7 +64,9 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Total Courses</span>
-                        <span class="info-box-number">12</span>
+                        <span class="info-box-number">
+                            <?php echo isset($_SESSION['total_courses']) ? $_SESSION['total_courses'] : '0'; ?>
+                        </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -75,7 +79,9 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">New Inquiries</span>
-                        <span class="info-box-number">5</span>
+                        <span class="info-box-number">
+                            <?php echo isset($_SESSION['total_queries']) ? $_SESSION['total_queries'] : '0'; ?>
+                        </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>

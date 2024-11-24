@@ -95,7 +95,7 @@
                     <div class="info-box-content">
                     <span class=""><a style="color: black;" href="http://localhost/SMS/admin/queries.php">New Inquiries</a>
                     <span class="info-box-number">
-                    <?php echo isset($_SESSION['totalQueries']) ? $_SESSION['totalQueries'] : '0'; ?>
+                    <?php echo isset($_SESSION['total_queries']) ? $_SESSION['total_queries'] : '0'; ?>
                     </span>
                     </div>
                     <!-- /.info-box-content -->
