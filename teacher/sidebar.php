@@ -1,6 +1,6 @@
 <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color: #FF6C36;">
+<!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -18,9 +18,9 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:purple;">
     <!-- Brand Logo -->
-    <a href="<?=$site_url?>teacher/profile.php" class="brand-link">
+    <a href="<?= $site_url ?>admin/dashboard.php" class="brand-link" style="background-color:purple">
       <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <!-- <span class="brand-image img-circle elevation-3"><i class="fa fa-user"></i></span> -->
@@ -110,26 +110,6 @@
               </li>
             </ul>
           </li>
-
-          <!-- Attendance -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
-              <p>
-                 Attendance
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>       
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?=$site_url?>teacher/attendance.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Attendance</p>
-                </a>
-              </li>
-            </ul>       
-          </li>
-
 
           <!-- Study Materials -->
           <li class="nav-item has-treeview">
