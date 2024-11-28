@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1708,6 +1709,8 @@
             }
         }
     </style>
+<?php include('header.php') ?>
+
 </head>
 
 <body>
@@ -2091,3 +2094,4 @@
 </body>
 
 </html>
+<?php include('footer.php') ?>

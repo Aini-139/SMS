@@ -1,3 +1,4 @@
+<?php include('header.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1537,3 +1538,4 @@ $conn->close();
 </body>
 
 </html>
+<?php include('footer.php') ?>
