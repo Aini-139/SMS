@@ -17,31 +17,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Count total queries
-// $totalQueriesResult = $conn->query("SELECT COUNT(*) as total FROM queries");
-// $totalQueries = 0;
-// if ($totalQueriesResult && $totalQueriesResult->num_rows > 0) {
-//     $row = $totalQueriesResult->fetch_assoc();
-//     $totalQueries = $row['total'];
-// }
-
 //Retrieve queries for admin
 $result = $conn->query("SELECT * FROM queries ORDER BY created_at DESC");
 
 $conn->close();
-
-$count_query = "SELECT COUNT(*) AS total_queries FROM queries";
-$count_result = mysqli_query($db_conn, $count_query);
-
-if ($count_result) {
-    $count = mysqli_fetch_assoc($count_result)['total_queries'];
-    $_SESSION['total_queries'] = $count;
-
-    // Debugging: Print the count directly
-    // echo "Total queries: " . $_SESSION['total_queries'];
-} else {
-    die('Database query failed: ' . mysqli_error($db_conn));
-}
 
 ?>
 

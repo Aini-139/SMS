@@ -118,7 +118,7 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="<?= $site_url ?>admin/periods.php"  class="nav-link">
+                              <a href="<?= $site_url ?>admin/periods.php" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Periods</p>
                               </a>
@@ -141,13 +141,34 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="<?=$site_url?>admin/examschedule.php" class="nav-link">
+                              <a href="<?= $site_url ?>admin/examschedule.php" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Examination Schedule</p>
                               </a>
                           </li>
                       </ul>
                   </li>
+
+                  <!-- Attendance
+                  <li class="nav-item has-treeview">
+                      <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-calendar-alt"></i>
+                          <p>
+                              Manage Attendance
+                              <i class="fas fa-angle-left right"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="<?= $site_url ?>admin/attendance.php" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Attendance</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li> -->
+
+
                   <li class="nav-item has-treeview">
                       <a href="#" class="nav-link">
                           <i class="nav-icon fas fa-paste"></i>
@@ -158,7 +179,7 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="<?=$site_url?>admin/study-materials.php" class="nav-link">
+                              <a href="<?= $site_url ?>admin/study-materials.php" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Study Materials</p>
                               </a>
@@ -175,7 +196,7 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="<?=$site_url?>admin/functions.php" class="nav-link">
+                              <a href="<?= $site_url ?>admin/functions.php" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Functions</p>
                               </a>

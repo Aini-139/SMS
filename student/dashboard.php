@@ -31,7 +31,11 @@
                     <div class="info-box-content">
                         <span class="info-box-text">Total Students</span>
                         <span class="info-box-number">
-                            <?php echo isset($_SESSION['total_students']) ? $_SESSION['total_students'] : '0'; ?>
+                            <?php
+                            // Fetch and display total student
+                            $total_students = getTotalStudents($db_conn);
+                            echo  $total_students;
+                            ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -46,7 +50,11 @@
                     <div class="info-box-content">
                         <span class="info-box-text">Total Teachers</span>
                         <span class="info-box-number">
-                            <?php echo isset($_SESSION['total_teachers']) ? $_SESSION['total_teachers'] : '0'; ?>
+                            <?php
+                            // Fetch and display total teacher
+                            $total_teacher = getTotalTeachers($db_conn);
+                            echo  $total_teacher;
+                            ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -65,7 +73,11 @@
                     <div class="info-box-content">
                         <span class="info-box-text">Total Courses</span>
                         <span class="info-box-number">
-                            <?php echo isset($_SESSION['total_courses']) ? $_SESSION['total_courses'] : '0'; ?>
+                            <?php
+                            // Fetch and display total courses
+                            $total_courses = getTotalCourses($db_conn);
+                            echo  $total_courses;
+                            ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -80,7 +92,11 @@
                     <div class="info-box-content">
                         <span class="info-box-text">New Inquiries</span>
                         <span class="info-box-number">
-                            <?php echo isset($_SESSION['total_queries']) ? $_SESSION['total_queries'] : '0'; ?>
+                            <?php
+                            // Fetch and display total queries
+                            $total_queries = getTotalQueries($db_conn);
+                            echo  $total_queries;
+                            ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->

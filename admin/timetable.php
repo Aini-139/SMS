@@ -11,14 +11,13 @@ if (isset($_POST['submit'])) {
     $date_add = date('Y-m-d g:i:s');
     $status = 'publish';
     $author = 1;
-    $type = 'timetable';
-    // $title = 
-    //$query = mysqli_query($db_conn, "INSERT INTO posts (`type`,`author`,`status`,`publish_date`) VALUES ('$type','$author','$status','$date_add')");
+    $type = 'tilmetable';
+
     $query = mysqli_query($db_conn, "INSERT INTO `posts`(`author`, `title`, `description`, `type`, `status`,`parent`) VALUES ('1','$type','description','timetable','publish',0)") or die('DB error');
     if ($query) {
         $item_id = mysqli_insert_id($db_conn);
     }
- // just for test 
+    // just for test 
     $metadata = array(
         'class_id' => $class_id,
         'section_id' => $section_id,
@@ -99,8 +98,25 @@ if (isset($_POST['submit'])) {
                                     <label for="teacher_id">Select Teacher</label>
                                     <select require name="teacher_id" id="teacher_id" class="form-control">
                                         <option value="">-Select Teacher-</option>
-                                        <option value="1">Teacher 1</option>
-                                        <option value="2">Teacher 2</option>
+                                        <!-- <option value="1">Teacher 1</option>
+                                        <option value="2">Teacher 2</option> -->
+                                        <?php
+                                        // $user_query = 'SELECT * FROM accounts WHERE `type` ="teacher"';
+                                        // $user_result = mysqli_query($db_conn, $user_query);
+                                        // while ($users = mysqli_fetch_object($user_result)) { ?>
+                                            <!-- <option value="<?php //echo $users->id ?>"><?php //echo $users->title ?></option> -->
+                                        <?php // } ?>
+
+                                        <?php
+                                        $query = "SELECT id, name FROM accounts WHERE type = 'teacher'";
+                                        $result = mysqli_query($db_conn, $query);
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while ($teacher = mysqli_fetch_assoc($result)) {
+                                                echo '<option value="' . $teacher['id'] . '">' . htmlspecialchars($teacher['name']) . '</option>';
+                                            }
+                                        }
+                                        ?>
+
                                     </select>
                                 </div>
                             </div>
@@ -137,7 +153,7 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="col-lg">
                                 <div class="form-group" id="section-container">
-                                <label for="subject_id">Select Subject</label>
+                                    <label for="subject_id">Select Subject</label>
                                     <select name="subject_id" id="subject_id" class="form-control" required>
                                         <option value="">-Select Subject-</option>
                                         <?php

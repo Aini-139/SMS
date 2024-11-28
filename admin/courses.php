@@ -49,19 +49,6 @@ if (isset($_POST['submit'])) {
     }
 }
 
-
-$course_count_query = "SELECT COUNT(*) AS total_courses FROM courses";
-$course_count_result = mysqli_query($db_conn, $course_count_query);
-
-if ($course_count_result) {
-    $course_count = mysqli_fetch_assoc($course_count_result)['total_courses'];
-    $_SESSION['total_courses'] = $course_count;
-
-    // Debugging: Print the count directly
-    // echo "Total courses: " . $_SESSION['total_courses'];
-} else {
-    die('Database query failed: ' . mysqli_error($db_conn));
-}
 ?>
 <?php include('header.php') ?>
 <?php include('sidebar.php') ?>
@@ -115,17 +102,11 @@ if ($course_count_result) {
                             <label for="category">Course Category</label>
                             <select name="category" id="category" class="form-control">
                                 <option value="">Select Category</option>
-                                <option value="english">English</option>
-                                <option value="math">Mathmatics</option>
-                                <option value="urdu">Urdu</option>
-                                <option value="islamiat">Islamiat</option>
-                                <option value="science">Science</option>
-                                <option value="computer">Computer</option>
-                                <option value="social-study">Social study</option>
-                                <option value="chemistry">Chemistry</option>
-                                <option value="physics">Physics</option>                            
-                                <option value="biology">Biology</option>                            
-                                 
+                                <?php
+                                        $subjects = get_posts(['type' => 'subject', 'status' => 'publish']);
+                                        foreach ($subjects as $subject) { ?>
+                                            <option value="<?php echo $subject->id ?>"><?php echo $subject->title ?></option>
+                                        <?php } ?>                                 
                             </select>
 
                         </div>

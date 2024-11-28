@@ -1,16 +1,7 @@
 <?php include('../includes/config.php') ?>
 <?php include('header.php') ?>
 <?php include('sidebar.php') ?>
-<?php
-// if (isset($_SESSION['total_courses'])) {
-//     echo "Session course count: " . $_SESSION['total_courses'];
-// } else {
-//     echo "No course count in session.";
-// }
 
-
-
-?>
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -44,7 +35,11 @@
 
                         </span>
                         <span class="info-box-number">
-                            <?php echo isset($_SESSION['total_students']) ? $_SESSION['total_students'] : '0'; ?>
+                            <?php
+                            // Fetch and display total student
+                            $total_students = getTotalStudents($db_conn);
+                            echo  $total_students;
+                            ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -58,9 +53,14 @@
 
                     <div class="info-box-content">
                         <span class=""><a style="color: black;" href="http://localhost/SMS/admin/user-account.php?user=teacher">Total Teachers</a>
-                        <span class="info-box-number">
-                            <?php echo isset($_SESSION['total_teachers']) ? $_SESSION['total_teachers'] : '0'; ?>
-                        </span>
+                            <span class="info-box-number">
+                                <?php
+                                // Fetch and display total teacher
+                                $total_teacher = getTotalTeachers($db_conn);
+                                echo  $total_teacher;
+                                ?>
+
+                            </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -79,9 +79,13 @@
 
                     <div class="info-box-content">
                         <span class=""><a style="color: black;" href="http://localhost/SMS/admin/courses.php">Total Courses</a>
-                        <span class="info-box-number">
-                            <?php echo isset($_SESSION['total_courses']) ? $_SESSION['total_courses'] : '0'; ?>
-                        </span>
+                            <span class="info-box-number" id="getCountButton">
+                                <?php
+                                // Fetch and display total courses
+                                $total_courses = getTotalCourses($db_conn);
+                                echo  $total_courses;
+                                ?>
+                            </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -93,10 +97,14 @@
                     <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-question-circle"></i></span>
 
                     <div class="info-box-content">
-                    <span class=""><a style="color: black;" href="http://localhost/SMS/admin/queries.php">New Inquiries</a>
-                    <span class="info-box-number">
-                    <?php echo isset($_SESSION['total_queries']) ? $_SESSION['total_queries'] : '0'; ?>
-                    </span>
+                        <span class=""><a style="color: black;" href="http://localhost/SMS/admin/queries.php">New Inquiries</a>
+                            <span class="info-box-number" id="getCountButton">
+                                <?php
+                                // Fetch and display total queries
+                                $total_queries = getTotalQueries($db_conn);
+                                echo  $total_queries;
+                                ?>
+                            </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -107,4 +115,5 @@
     </div><!--/. container-fluid -->
 </section>
 <!-- /.content -->
+
 <?php include('footer.php') ?>

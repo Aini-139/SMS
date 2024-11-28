@@ -151,6 +151,59 @@ function get_usermeta($user_id,$meta_key,$signle=true)
         return mysqli_fetch_object($query);
     }
 }
+
+function getTotalCourses($db_conn) {
+    $course_count_query = "SELECT COUNT(*) AS total_courses FROM courses"; // Replace 'courses' with your table name
+    $course_count_result = mysqli_query($db_conn, $course_count_query);
+
+    if ($course_count_result) {
+        $course_count = mysqli_fetch_assoc($course_count_result)['total_courses'];
+        return $course_count; // Return the count
+    } else {
+        return 0; // Return 0 if the query fails
+    }
+}
+function getTotalQueries($db_conn) {
+    $count_query = "SELECT COUNT(*) AS total_queries FROM queries"; // Replace 'queries' with your table name
+    $count_result = mysqli_query($db_conn, $count_query);
+
+    if ($count_result) {
+        $query_count = mysqli_fetch_assoc($count_result)['total_queries'];
+        return $query_count; // Return the count
+    } else {
+        return 0; // Return 0 if the query fails
+    }
+}
+
+function getTotalStudents($db_conn) {
+    // Query to count only students from the accounts table
+    $student_count_query = "SELECT COUNT(*) AS total_student FROM accounts WHERE type = 'student'"; // Replace 'role' with your actual column name for role, and 'student' with the appropriate role value
+    
+    $student_count_result = mysqli_query($db_conn, $student_count_query);
+
+    if ($student_count_result) {
+        // Fetch the count of students
+        $student_count = mysqli_fetch_assoc($student_count_result)['total_student'];
+        return $student_count; // Return the student count
+    } else {
+        return 0; // Return 0 if the query fails
+    }
+}
+function getTotalTeachers($db_conn) {
+    // Query to count only teacher from the accounts table
+    $teacher_count_query = "SELECT COUNT(*) AS total_teacher FROM accounts WHERE type = 'teacher'"; // Replace 'teacher' with your actual column name for role, and 'student' with the appropriate role value
+    
+    $teacher_count_result = mysqli_query($db_conn, $teacher_count_query);
+
+    if ($teacher_count_result) {
+        // Fetch the count of teacher
+        $teacher_count = mysqli_fetch_assoc($teacher_count_result)['total_teacher'];
+        return $teacher_count; // Return the teacher count
+    } else {
+        return 0; // Return 0 if the query fails
+    }
+}
+
 ?>
 
 

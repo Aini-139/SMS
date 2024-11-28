@@ -23,45 +23,10 @@ if (isset($_POST['submit'])) {
     }
 }
 
-// Query to count students and teachers in one go
-$query = "
-    SELECT 
-        SUM(CASE WHEN type = 'student' THEN 1 ELSE 0 END) AS total_students,
-        SUM(CASE WHEN type = 'teacher' THEN 1 ELSE 0 END) AS total_teachers
-    FROM accounts
-";
-$result = mysqli_query($db_conn, $query);
-
-if ($result) {
-    $counts = mysqli_fetch_assoc($result);
-    $_SESSION['total_students'] = $counts['total_students'];
-    $_SESSION['total_teachers'] = $counts['total_teachers'];
-} else {
-    die('Database query failed: ' . mysqli_error($db_conn));
-}
 ?>
 
 <?php include('header.php') ?>
 <?php include('sidebar.php') ?>
-
-<style>
-    /* span#loader {
-    position: absolute;
-    left: 50;
-    width: 100%;
-    height: 100%;
-    background: #e2e2e2b5;
-}
-
-i.fas.fa-circle-notch.fa-spin {
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    font-size: 10rem;
-    transform: translate(-50%,-50%);
-    transform-origin: center;
-}  */
-</style>
 
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -387,5 +352,33 @@ i.fas.fa-circle-notch.fa-spin {
         }
         return false;
     });
+
+    jQuery('#student-registration').on('submit', function() {
+        console.log();
+        if (true) {
+            var formdata = jQuery(this).serialize();
+
+            jQuery.ajax({
+                type: "post",
+                url: "http://localhost/SMS/actions/student-registration.php",
+                data: formdata,
+                dataType: 'json',
+                beforeSend: function() {
+                    jQuery('#loader').show();
+                },
+                success: function(response) {
+                    console.log(response);
+                    if (response.success == true) {
+                        location.href = 'http://localhost/SMS/admin/user-account.php?user=teacher';
+                    }
+                },
+                complete: function() {
+                    jQuery('#loader').hide();
+                }
+            });
+        }
+        return false;
+    });
+
 </script>
 <?php include('footer.php') ?>
