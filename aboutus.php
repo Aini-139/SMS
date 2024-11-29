@@ -1692,10 +1692,10 @@
     <div class="important-links">
         <h3>Important Links</h3>
 
-        <a href="login.php">Admin login</a>
-        <a href="login.php">Teacher login</a>
-        <a href="login.php">Student login</a>
-        <a href="login.php"> Parent login</a>
+        <a href="index.php">Home</a>
+        <a href="aboutus.php">About Us</a>
+        <a href="campus-functions.php">Events</a>
+        <a href="contactus.php">Contact Us</a>
 
     </div>
 
