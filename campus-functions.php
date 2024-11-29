@@ -1577,11 +1577,11 @@
     <!-- Row 2 -->
     <div class="image-row">
         <div class="image-box">
-            <img src="images/ee.jpg" alt="Image 5">
+            <img src="images/ab.jpg" alt="Image 5">
             <p>School Functions</p>
         </div>
         <div class="image-box">
-            <img src="images/ii.jpg" alt="Image 6">
+            <img src="images/img8.jpg" alt="Image 6">
             <p>School Functions</p>
         </div>
         <div class="image-box">
@@ -1609,7 +1609,7 @@
             <p>School Functions</p>
         </div>
         <div class="image-box">
-            <img src="images/nn.jpg" alt="Image 12">
+            <img src="images/ab.jpg" alt="Image 12">
             <p>School Functions</p>
         </div>
     </div>

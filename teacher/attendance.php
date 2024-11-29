@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     $date_add = date('Y-m-d');
     $status = 'publish';
     $author = 1;
-    $type = 'student';
+    $type = 'attendance';
 
     $query = mysqli_query($db_conn, "INSERT INTO `posts`(`author`, `title`, `description`, `type`, `status`,`parent`) VALUES ('1','$type','description','attendance','publish',0)") or die('DB error');
     if ($query) {

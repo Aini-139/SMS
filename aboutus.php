@@ -1587,7 +1587,7 @@
 
                 <a href="aboutus.php">About Us</a>
                 <a href="campus-functions.php">Events</a>
-                <a href="contactus.php">Contect Us</a>
+                <a href="contactus.php">Contact Us</a>
 
                 <!-- User Login with Dropdown -->
                 <div class="user-login">
@@ -1683,31 +1683,31 @@
 
 <footer>
 
-<div class="left-content">
+    <div class="left-content">
 
-    <h3>About Dua International</h3>
-    <p>At Dua International School, we believe in nurturing young minds through play-based learning experiences. Our experienced teachers create a safe and stimulating environment where children can explore, discover, and learn at their own pace. We focus on developing social, emotional, cognitive, and physical skills to prepare children for success in school and beyond.</p>
-</div>
+        <h3>About Dua International</h3>
+        <p>At Dua International School, we believe in nurturing young minds through play-based learning experiences. Our experienced teachers create a safe and stimulating environment where children can explore, discover, and learn at their own pace. We focus on developing social, emotional, cognitive, and physical skills to prepare children for success in school and beyond.</p>
+    </div>
 
-<div class="important-links">
-    <h3>Important Links</h3>
+    <div class="important-links">
+        <h3>Important Links</h3>
 
-    <a href="login.php">Admin login</a>
-    <a href="login.php">Teacher login</a>
-    <a href="login.php">Student login</a>
-    <a href="login.php"> Parent login</a>
+        <a href="login.php">Admin login</a>
+        <a href="login.php">Teacher login</a>
+        <a href="login.php">Student login</a>
+        <a href="login.php"> Parent login</a>
 
-</div>
+    </div>
 
-<div class="contact-us">
-    <h3>Contact Us</h3>
-    <a href="tel:+923246237080">
-        <i class="bi bi-telephone"></i>+92 324 6237080
-    </a>
-    <a href="mailto:duainternationalschool@gmail.com">
-        <i class="bi bi-envelope"></i>duainternationalschool@gmail.com
-    </a>
-</div>
+    <div class="contact-us">
+        <h3>Contact Us</h3>
+        <a href="tel:+923246237080">
+            <i class="bi bi-telephone"></i>+92 324 6237080
+        </a>
+        <a href="mailto:duainternationalschool@gmail.com">
+            <i class="bi bi-envelope"></i>duainternationalschool@gmail.com
+        </a>
+    </div>
 
 </footer>
 </body>
