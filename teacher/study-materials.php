@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
             foreach ($metadata as $key => $value) {
                 mysqli_query($db_conn, "INSERT INTO `metadata` (`item_id`, `meta_key`, `meta_value`) VALUES ('$item_id', '$key', '$value')");
             }
-            $_SESSION['success_msg'] = 'Course has been uploaded successfuly';
+            $_SESSION['success_msg'] = 'Study material has been uploaded successfuly';
             header('Location: study-materials.php');
             exit;
         } else {

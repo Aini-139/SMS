@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -260,22 +259,24 @@
     overflow: hidden; Ensures video does not overflow container
 } */
 
-.excellence-text {
-    position: absolute;
-    top: 50%; /* Adjust as needed to center text vertically */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2; /* Keeps text above video */
-    color: orangered;
-    font-size: 50px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-    /* Remove margin-top to prevent misalignment */
-}
+        .excellence-text {
+            position: absolute;
+            top: 50%;
+            /* Adjust as needed to center text vertically */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            /* Keeps text above video */
+            color: orangered;
+            font-size: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            /* Remove margin-top to prevent misalignment */
+        }
 
 
         /* Excellence In Education Text Styling */
@@ -283,23 +284,24 @@
             position: absolute;
             margin-top: 9%;
             /* Positioning the text a bit lower than the center */
-            /* left: 50%; */
-            /* transform: translate(-50%, -50%); */
-            /* Center text horizontally and vertically */
-            /* z-index: 2; */
-            /* color: orangered; */
-            /* font-size: 60px; */
-            /* Larger font size for better visibility */
-            /* font-family: 'Poppins', sans-serif; */
-            /* Modern font */
-            /* font-weight: 700; */
-            /* text-align: center; */
-            /* letter-spacing: 2px; */
-            /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
-            /* Text shadow for better visibility */
-            /* transition: all 0.3s ease; */
-            /* Smooth transition effect for hover */
-        /* } */ */
+        /* left: 50%; */
+        /* transform: translate(-50%, -50%); */
+        /* Center text horizontally and vertically */
+        /* z-index: 2; */
+        /* color: orangered; */
+        /* font-size: 60px; */
+        /* Larger font size for better visibility */
+        /* font-family: 'Poppins', sans-serif; */
+        /* Modern font */
+        /* font-weight: 700; */
+        /* text-align: center; */
+        /* letter-spacing: 2px; */
+        /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
+        /* Text shadow for better visibility */
+        /* transition: all 0.3s ease; */
+        /* Smooth transition effect for hover */
+        /* } */
+        */
 
         /* Hover effect on Excellence text */
         .excellence-text:hover {
@@ -1068,14 +1070,21 @@
         }
 
         /* Footer Styling */
+        body,
+        footer {
+            margin: 0;
+            padding: 0;
+        }
+
         footer {
             display: flex;
             justify-content: space-between;
-            padding: 20px;
+            padding: 10px;
             position: relative;
             background-image:
-                linear-gradient(rgba(319, 105, 115, 0.5), rgba(348, 9, 9, 0.5)),
-                /* Transparent gradient overlay */
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                /*Dark black overlay with transparency */
+                /* linear-gradient(rgba(216, 191, 216, 0.5), rgba(138, 43, 226, 0.4)), Light purple gradient (lavender to medium purple) */
                 url('images/img8.jpg');
             /* Replace with your actual image URL */
             background-size: cover;
@@ -1085,14 +1094,13 @@
             color: white;
             /* Default text color */
             height: 70vh;
-            margin-bottom: 0;
-            /* Remove extra space below footer */
+            font-family: 'Roboto', sans-serif;
+            /* Set font to Roboto */
         }
 
         /* Applying the blur effect only to the background */
         footer::before {
             content: '';
-            /* Empty content */
             position: absolute;
             top: 0;
             left: 0;
@@ -1102,68 +1110,56 @@
             /* Inherit background image from footer */
             background-size: cover;
             background-position: center;
-            filter: blur(15px);
+            filter: blur(5px);
             /* Blur effect applied to the background image */
-            z-index: -3;
+            z-index: -1;
             /* Ensures the blur effect stays behind the content */
         }
 
         /* Header Styling within Footer */
         footer h3 {
-            font-family: Arial, Helvetica, sans-serif;
-            padding-bottom: 20px;
-            padding-top: 40px;
+            font-family: 'Roboto', sans-serif;
+            padding-bottom: 10px;
+            padding-top: 30px;
+            font-weight: normal;
+            /* Remove boldness */
         }
 
         /* Paragraph inside Footer (About Us, etc.) */
         footer p {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 16px;
-            font-weight: 600;
-            padding-right: 60px;
+            padding-right: 30px;
             line-height: 1.5em;
             color: white;
-            /* Default color for footer paragraphs */
-            margin-bottom: 0;
-            /* Remove any unwanted margin below paragraphs */
+            /* Ensures text is white */
+            text-align: justify;
+            /* Justify text for better readability */
+            width: 100%;
+            /* Make sure text fits within the container */
+            box-sizing: border-box;
+            /* Ensure padding doesn't cause overflow */
+            font-weight: normal;
+            /* Remove boldness */
+            padding-top: 30px;
         }
 
         /* Footer Paragraph Hover Effect (if applicable) */
         footer p:hover {
-            color: blue;
-            /* Keep white color on hover for better visibility */
+            color: orangered;
+            /* Change color on hover */
         }
 
         /* Left Content section in Footer */
         .left-content {
             width: 50%;
-            color: white;
-            /* Set the font color of text inside .left-content to white */
         }
 
-        .left-content h3 {
-            font-family: Arial, Helvetica, sans-serif;
-            padding-bottom: 20px;
-            padding-top: 40px;
-            color: white;
-            /* Ensures the header text is white */
-        }
-
-        .left-content p {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            padding-right: 60px;
-            line-height: 1.5em;
-            color: white;
-            /* Ensures the paragraph text is white */
-            margin-bottom: 0;
-        }
-
-        /* Add hover effect on p */
-        .left-content p:hover {
-            color: blue;
-            /* Change color to blue on hover */
+        /* Links in Important Links and Contact Us sections */
+        .important-links,
+        .contact-us {
+            width: 15%;
+            padding-top: 30px;
         }
 
         /* Styling for links in Important Links and Contact Us */
@@ -1172,27 +1168,197 @@
             display: block;
             color: white;
             text-decoration: none;
-            padding: 5px 0;
-            font-family: Arial, Helvetica, sans-serif;
+            padding: 1px 10;
+            font-family: 'Roboto', sans-serif;
+            /* Use the same font for links */
             font-size: 16px;
-            font-weight: 600;
-            transition: color 0.3s ease;
-            /* Smooth transition on hover */
+            font-weight: normal;
+            /* Remove boldness */
+            padding-top: 10px;
         }
 
-        /* Hover effect for links: Blue color and white font */
+        /* Hover effect for links */
         .important-links a:hover,
         .contact-us a:hover {
             text-decoration: underline;
-            color: blue;
-            /* Links turn blue on hover */
-            font-weight: 700;
-            /* Bold the link text on hover */
+            color: orangered;
         }
 
         /* Contact Icons (if applicable) */
         .contact-us i {
-            padding-right: 10px;
+            padding-right: auto;
+        }
+
+        /* Responsive Design for Mobile Devices */
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                /* Stack content vertically */
+                height: auto;
+                /* Allow footer to expand with content */
+                padding: 15px;
+                /* Slightly reduce padding on tablets */
+            }
+
+            .left-content,
+            .important-links,
+            .contact-us {
+                width: 100%;
+                /* Ensure each section takes full width */
+                text-align: center;
+                /* Center content for smaller screens */
+                margin-bottom: 10px;
+                /* Add space between sections */
+            }
+
+            footer p {
+                font-size: 14px;
+                /* Slightly reduce font size on smaller screens */
+                padding-right: 0;
+                /* Remove extra padding */
+                text-align: center;
+                /* Center the text on smaller screens */
+                width: 100%;
+                /* Ensure paragraph is not too wide */
+                margin: 0 auto;
+                /* Center the paragraph */
+            }
+        }
+
+        @media (max-width: 480px) {
+            footer {
+                padding: 10px;
+                /* Less padding for mobile */
+            }
+
+            footer p {
+                font-size: 12px;
+                /* Further reduce font size for very small screens */
+                padding-right: 0;
+                /* Remove padding */
+                text-align: center;
+                /* Center text on small screens */
+                width: 90%;
+                /* Adjust width for better readability */
+                margin: 0 auto;
+                /* Center the paragraph */
+            }
+        }
+
+        /* Styling for the Important Links */
+        .important-links a {
+            display: flex;
+            align-items: center;
+            /* Vertically center the text and the circle */
+            color: white;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            /* Font for the link text */
+            font-size: 16px;
+            font-weight: normal;
+            /* Remove boldness */
+            padding-left: 30px;
+            /* Add space on the left for the circle */
+            margin-bottom: 10px;
+            /* Space between links */
+            text-align: left;
+            /* Align the text to the left */
+        }
+
+        /* Add right arrow symbol in a circle for Important Links */
+        .important-links a::before {
+            content: '→';
+            /* Right arrow symbol */
+            display: inline-block;
+            background-color: #fff;
+            /* White circle background */
+            color: black;
+            /* Symbol color */
+            font-size: 24px;
+            /* Adjust the size of the symbol */
+            width: 30px;
+            /* Width of the circle */
+            height: 30px;
+            /* Height of the circle */
+            border-radius: 50%;
+            /* Make the circle */
+            text-align: center;
+            /* Center the symbol inside the circle */
+            line-height: 30px;
+            /* Vertically center the symbol inside the circle */
+            margin-right: 15px;
+            /* Space between the circle and the text */
+        }
+
+        /* Styling for the About Us and Contact Us Sections */
+        footer h3 {
+            font-family: 'Roboto', sans-serif;
+            /* Clean font style */
+            font-size: 22px;
+            /* Font size for the section titles */
+            color: white;
+            /* Title color */
+            margin-bottom: 15px;
+            /* Add some space below the title */
+            text-align: left;
+            /* Align titles to the left */
+        }
+
+        footer p {
+            font-family: 'Roboto', sans-serif;
+            /* Clean font style */
+            font-size: 16px;
+            /* Font size for paragraph */
+            color: white;
+            /* Paragraph color */
+            line-height: 1.6;
+            /* Line height for readability */
+            margin-bottom: 15px;
+            /* Space between paragraphs */
+            text-align: left;
+            /* Align text to the left */
+        }
+
+        /* Hover effect for paragraphs */
+        footer p:hover {
+            color: orangered;
+            /* Change color on hover */
+        }
+
+        /* Adjust Contact Us and Important Links in Footer */
+        .important-links,
+        .contact-us {
+            width: 25%;
+            /* Set the width of each section */
+            padding: 20px;
+        }
+
+        /* For smaller screens, make the footer items stack */
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                /* Stack the footer items vertically */
+            }
+
+            .important-links,
+            .contact-us {
+                width: 100%;
+                /* Full width for each section */
+                text-align: center;
+                /* Center the content */
+                margin-bottom: 20px;
+                /* Add space between sections */
+            }
+
+            footer h3 {
+                font-size: 18px;
+                /* Adjust the font size of section titles */
+            }
+
+            footer p {
+                font-size: 14px;
+                /* Adjust font size of paragraphs */
+            }
         }
 
         /* Articles Section */
@@ -1709,7 +1875,7 @@
             }
         }
     </style>
-<?php include('header.php') ?>
+    <?php //include('header.php') ?> 
 
 </head>
 
@@ -2073,11 +2239,12 @@
 
         <div class="important-links">
             <h3>Important Links</h3>
-            <a href="index.php">Home</a>
 
-            <a href="aboutus.php">About Us</a>
-            <a href="campus-functions.php">Events</a>
-            <a href="contactus.php">Contact Us</a>
+            <a href="login.php">Admin login</a>
+            <a href="login.php">Teacher login</a>
+            <a href="login.php">Student login</a>
+            <a href="login.php"> Parent login</a>
+
         </div>
 
         <div class="contact-us">

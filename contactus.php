@@ -1166,10 +1166,6 @@
             }
         }
 
-
-
-
-
         /* Footer Styling */
         body,
         footer {
@@ -1178,21 +1174,14 @@
         }
 
         footer {
-            margin-bottom: 0;
-            /* Remove any extra space below the footer */
-        }
-
-
-
-
-        footer {
             display: flex;
             justify-content: space-between;
-            padding: 20px;
+            padding: 10px;
             position: relative;
             background-image:
-                linear-gradient(rgba(319, 105, 115, 0.5), rgba(348, 9, 9, 0.5)),
-                /* Transparent gradient overlay */
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                /*Dark black overlay with transparency */
+                /* linear-gradient(rgba(216, 191, 216, 0.5), rgba(138, 43, 226, 0.4)), Light purple gradient (lavender to medium purple) */
                 url('images/img8.jpg');
             /* Replace with your actual image URL */
             background-size: cover;
@@ -1202,12 +1191,13 @@
             color: white;
             /* Default text color */
             height: 70vh;
+            font-family: 'Roboto', sans-serif;
+            /* Set font to Roboto */
         }
 
         /* Applying the blur effect only to the background */
         footer::before {
             content: '';
-            /* Empty content */
             position: absolute;
             top: 0;
             left: 0;
@@ -1225,37 +1215,48 @@
 
         /* Header Styling within Footer */
         footer h3 {
-            font-family: Arial, Helvetica, sans-serif;
-            padding-bottom: 20px;
-            padding-top: 40px;
+            font-family: 'Roboto', sans-serif;
+            padding-bottom: 10px;
+            padding-top: 30px;
+            font-weight: normal;
+            /* Remove boldness */
         }
 
         /* Paragraph inside Footer (About Us, etc.) */
         footer p {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            padding-right: 20px;
-            line-height: 1em;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-right: 30px;
+            line-height: 1.5em;
             color: white;
             /* Ensures text is white */
+            text-align: justify;
+            /* Justify text for better readability */
+            width: 100%;
+            /* Make sure text fits within the container */
+            box-sizing: border-box;
+            /* Ensure padding doesn't cause overflow */
+            font-weight: normal;
+            /* Remove boldness */
+            padding-top: 30px;
         }
 
         /* Footer Paragraph Hover Effect (if applicable) */
         footer p:hover {
-            color: blue;
+            color: orangered;
             /* Change color on hover */
         }
 
         /* Left Content section in Footer */
         .left-content {
-            width: 120%;
+            width: 50%;
         }
 
         /* Links in Important Links and Contact Us sections */
         .important-links,
-        .contactusp {
-            width: 45%;
+        .contact-us {
+            width: 15%;
+            padding-top: 30px;
         }
 
         /* Styling for links in Important Links and Contact Us */
@@ -1264,22 +1265,197 @@
             display: block;
             color: white;
             text-decoration: none;
-            padding: 5px 0;
-            font-family: Arial, Helvetica, sans-serif;
+            padding: 1px 10;
+            font-family: 'Roboto', sans-serif;
+            /* Use the same font for links */
             font-size: 16px;
-            font-weight: 600;
+            font-weight: normal;
+            /* Remove boldness */
+            padding-top: 10px;
         }
 
         /* Hover effect for links */
         .important-links a:hover,
         .contact-us a:hover {
             text-decoration: underline;
-            color: navy;
+            color: orangered;
         }
 
         /* Contact Icons (if applicable) */
         .contact-us i {
-            padding-right: 10px;
+            padding-right: auto;
+        }
+
+        /* Responsive Design for Mobile Devices */
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                /* Stack content vertically */
+                height: auto;
+                /* Allow footer to expand with content */
+                padding: 15px;
+                /* Slightly reduce padding on tablets */
+            }
+
+            .left-content,
+            .important-links,
+            .contact-us {
+                width: 100%;
+                /* Ensure each section takes full width */
+                text-align: center;
+                /* Center content for smaller screens */
+                margin-bottom: 10px;
+                /* Add space between sections */
+            }
+
+            footer p {
+                font-size: 14px;
+                /* Slightly reduce font size on smaller screens */
+                padding-right: 0;
+                /* Remove extra padding */
+                text-align: center;
+                /* Center the text on smaller screens */
+                width: 100%;
+                /* Ensure paragraph is not too wide */
+                margin: 0 auto;
+                /* Center the paragraph */
+            }
+        }
+
+        @media (max-width: 480px) {
+            footer {
+                padding: 10px;
+                /* Less padding for mobile */
+            }
+
+            footer p {
+                font-size: 12px;
+                /* Further reduce font size for very small screens */
+                padding-right: 0;
+                /* Remove padding */
+                text-align: center;
+                /* Center text on small screens */
+                width: 90%;
+                /* Adjust width for better readability */
+                margin: 0 auto;
+                /* Center the paragraph */
+            }
+        }
+
+        /* Styling for the Important Links */
+        .important-links a {
+            display: flex;
+            align-items: center;
+            /* Vertically center the text and the circle */
+            color: white;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            /* Font for the link text */
+            font-size: 16px;
+            font-weight: normal;
+            /* Remove boldness */
+            padding-left: 30px;
+            /* Add space on the left for the circle */
+            margin-bottom: 10px;
+            /* Space between links */
+            text-align: left;
+            /* Align the text to the left */
+        }
+
+        /* Add right arrow symbol in a circle for Important Links */
+        .important-links a::before {
+            content: '→';
+            /* Right arrow symbol */
+            display: inline-block;
+            background-color: #fff;
+            /* White circle background */
+            color: black;
+            /* Symbol color */
+            font-size: 24px;
+            /* Adjust the size of the symbol */
+            width: 30px;
+            /* Width of the circle */
+            height: 30px;
+            /* Height of the circle */
+            border-radius: 50%;
+            /* Make the circle */
+            text-align: center;
+            /* Center the symbol inside the circle */
+            line-height: 30px;
+            /* Vertically center the symbol inside the circle */
+            margin-right: 15px;
+            /* Space between the circle and the text */
+        }
+
+        /* Styling for the About Us and Contact Us Sections */
+        footer h3 {
+            font-family: 'Roboto', sans-serif;
+            /* Clean font style */
+            font-size: 22px;
+            /* Font size for the section titles */
+            color: white;
+            /* Title color */
+            margin-bottom: 15px;
+            /* Add some space below the title */
+            text-align: left;
+            /* Align titles to the left */
+        }
+
+        footer p {
+            font-family: 'Roboto', sans-serif;
+            /* Clean font style */
+            font-size: 16px;
+            /* Font size for paragraph */
+            color: white;
+            /* Paragraph color */
+            line-height: 1.6;
+            /* Line height for readability */
+            margin-bottom: 15px;
+            /* Space between paragraphs */
+            text-align: left;
+            /* Align text to the left */
+        }
+
+        /* Hover effect for paragraphs */
+        footer p:hover {
+            color: orangered;
+            /* Change color on hover */
+        }
+
+        /* Adjust Contact Us and Important Links in Footer */
+        .important-links,
+        .contact-us {
+            width: 25%;
+            /* Set the width of each section */
+            padding: 20px;
+        }
+
+        /* For smaller screens, make the footer items stack */
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                /* Stack the footer items vertically */
+            }
+
+            .important-links,
+            .contact-us {
+                width: 100%;
+                /* Full width for each section */
+                text-align: center;
+                /* Center the content */
+                margin-bottom: 20px;
+                /* Add space between sections */
+            }
+
+            footer h3 {
+                font-size: 18px;
+                /* Adjust the font size of section titles */
+            }
+
+            footer p {
+                font-size: 14px;
+                /* Adjust font size of paragraphs */
+            }
         }
 
         /* Articles Section */
@@ -1504,35 +1680,31 @@ $conn->close();
 <!--footer-->
 <footer>
 
-    <div class="left-content">
+<div class="left-content">
 
-        <h3>About Dua International</h3>
-        <b>
-            <p>At Dua International School, we believe in nurturing young minds through play-based learning experiences. Our experienced teachers create a safe
-                and stimulating environment where children can explore, discover, and learn at their own pace. We focus on developing social, emotional,
-                cognitive, and physical skills to prepare children for success in school and beyond.</p>
-        </b>
-    </div>
+    <h3>About Dua International</h3>
+    <p>At Dua International School, we believe in nurturing young minds through play-based learning experiences. Our experienced teachers create a safe and stimulating environment where children can explore, discover, and learn at their own pace. We focus on developing social, emotional, cognitive, and physical skills to prepare children for success in school and beyond.</p>
+</div>
 
+<div class="important-links">
+    <h3>Important Links</h3>
 
-    <div class="important-links">
-        <h3>Important Links</h3>
-        <a href="index.php">Home</a>
+    <a href="login.php">Admin login</a>
+    <a href="login.php">Teacher login</a>
+    <a href="login.php">Student login</a>
+    <a href="login.php"> Parent login</a>
 
-        <a href="aboutus.php">About Us</a>
-        <a href="campus-functions.php">Events</a>
-        <a href="contactus.php">Contact Us</a>
-    </div>
+</div>
 
-    <div class="contactusp">
-        <h3>Contact Us</h3>
-        <a href="tel:+923246237080">
-            <i class="bi bi-telephone"></i>+92 324 6237080
-        </a>
-        <a href="mailto:duainternationalschool@gmail.com">
-            <i class="bi bi-envelope"></i>duainternationalschool@gmail.com
-        </a>
-    </div>
+<div class="contact-us">
+    <h3>Contact Us</h3>
+    <a href="tel:+923246237080">
+        <i class="bi bi-telephone"></i>+92 324 6237080
+    </a>
+    <a href="mailto:duainternationalschool@gmail.com">
+        <i class="bi bi-envelope"></i>duainternationalschool@gmail.com
+    </a>
+</div>
 
 </footer>
 </body>
